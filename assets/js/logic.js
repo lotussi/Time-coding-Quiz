@@ -12,3 +12,35 @@
 //when its done it prompts to user to put initials
 
 
+
+// Things we need to built quiz
+//
+
+var currentQuestion = 0;
+var score = 0;
+var timer;
+
+
+var startButton = document.getElementById("start");
+startButton.addEventListener("click", startQuiz);function startQuiz() {
+const startScreen = document.getElementById("start-screen");
+startScreen.classList.add("hide");
+  
+
+
+
+var questions = document.getElementById("questions");
+  questions.classList.remove("hide");
+
+  timer = setInterval(countdown, 1000);
+  displayQuestion();
+  function countdown() {
+    const time = document.getElementById("time");
+    time.textContent--;
+    if (time.textContent === "0") {
+      endQuiz();
+    }
+  }
+  
+}
+
