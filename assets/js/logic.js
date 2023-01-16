@@ -20,20 +20,23 @@ var currentQuestion = 0;
 var score = 0;
 var timer;
 
-
+// Need start button 
 var startButton = document.getElementById("start");
 startButton.addEventListener("click", startQuiz);function startQuiz() {
 const startScreen = document.getElementById("start-screen");
 startScreen.classList.add("hide");
   
 
-
+// Show questions
 
 var questions = document.getElementById("questions");
   questions.classList.remove("hide");
 
+  // Start timer
   timer = setInterval(countdown, 1000);
+
   displayQuestion();
+}
   function countdown() {
     const time = document.getElementById("time");
     time.textContent--;
@@ -41,6 +44,47 @@ var questions = document.getElementById("questions");
       endQuiz();
     }
   }
+
+  function displayQuestion() {
+
+
+
+    var question = questions[currentQuestion];
+    var questionTitle =document.getElementById("question-title");
+    questionTitle.textContent = question.title;
+    var choices = document.getElementById("choices");
+    choices.innerHTML = "";
+
+    for (let i = 0; i < question.choices.length; i++) {
+        var choice = question.choices[i];
+    
+        var button = document.createElement("button");
+        button.textContent = choice;
+        button.classList.add("choice");
+        button.addEventListener("click", selectAnswer);
+        choices.appendChild(button);
+      }
+    }
+
+ function selectAnswer(event) {
+    var answer = event.target.textContent;
+    // check if answer is correct
+    if (answer ===questions[currentQuestion].answer) {
+     var feedback = document.getElementById("feedback");
+     feedback.textContent = "Correct!";
+     feedback.classList.remove("hide", "incorrect");
+     feedback.classList.add("correct");
+     
+     score++;
+
+    } else {
+        var feedback = document.getElementById("feedback");
+        feedback.textContent = "Incorrect!";
+        feedback.classList.remove("hide", "correct");
+        feedback.classList.add("incorrect");
+        
+    }
+ }  
   
-}
+
 
