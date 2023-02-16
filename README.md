@@ -2,6 +2,9 @@
 ## Description
   This code creates a time coding quiz. when you run this app in browser you will see  the  start button. When you clicked on the starts button multiple choice question comes on the screen,  and when answer is clicked the next question appeares. the quiz ends when all questions answered or timer reaches 0. When games ends, it display the score.
   ## Installation
+  ![Alt text](Screenshot_20230213_172406.png)
+ ![Alt text](Screenshot_20230213_172444.png) 
+ ![Alt text](Screenshot_20230213_172338.png)
 
   #License
   # License
